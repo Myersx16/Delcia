@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Délcia ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Dancing Script', cursive;
+}
+
+body {
+    background: linear-gradient(180deg, #ffd6e8, #f9a8c4);
+    height: 100vh;
+    overflow-y: auto;
+    color: #5a0033;
+}
+
+/* SEÇÕES */
+section {
+    position: relative;
+    min-height: 100vh;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+}
+
+section.active {
+    display: flex;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* BOTÃO */
+.next-btn {
+    margin-top: 30px;
+    align-self: flex-end;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 26px;
+    border: none;
+    border-radius: 30px;
+    background: #e6005c;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 0 15px rgba(230,0,92,.6);
+}
+
+/* TELA 1 — CARTA FECHADA */
+.envelope {
+    width: 260px;
+    height: 180px;
+    background: #fff;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seal {
+    width: 70px;
+    height: 70px;
+    background: #e6005c;
+    border-radius: 50%;
+    font-size: 32px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+/* TELA 2 */
+.title {
+    font-size: 42px;
+}
+
+/* TELA 3 */
+.photo {
+    width: 80%;
+    max-width: 320px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.3);
+}
+
+.text {
+    font-size: 26px;
+    margin-top: 20px;
+}
+    
+.photo-small {
+    width: 70%;
+    max-width: 260px;
+    border-radius: 20px;
+    margin-top: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.25);
+}
+    
+.carta-container {
+  background: #fff0f5;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 12px;
+  font-family: 'Courier New', cursive;
+  font-size: 18px;
+  color: #5a2a3a;
+  min-height: 70vh;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+  position: relative;
+}
+
+#texto-carta {
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
+.btn-seguinte {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  padding: 10px 18px;
+  background: #ff69b4;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 16px;
+}
+
+/* TELA 4 — CARTA */
+.letter {
+    background: rgba(255,255,255,.95);
+    padding: 25px;
+    border-radius: 20px;
+    font-size: 24px;
+    line-height: 1.6;
+    box-shadow: 0 15px 30px rgba(0,0,0,.3);
+}
+
+/* TELA 5 */
+.final-photos {
+    display: flex;
+    gap: 15px;
+}
+
+.final-photos img {
+    width: 90px;
+    border-radius: 15px;
+}
+
+.final-text {
+    margin-top: 25px;
+    font-size: 26px;
+}
+    
+.memory {
+    width: 100%;
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.memory.right {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.memory img {
+    width: 180px;
+    border-radius: 18px;
+    margin-bottom: 10px;
+}
+
+.memory p {
+    font-size: 22px;
+    max-width: 220px;
+}
+
+/* TELA 6 */
+
+.musica {
+  background: linear-gradient(#ffe4ec, #fff);
+  text-align: center;
+  padding: 20px;
+  height: 100vh;
+}
+
+.musica h2 {
+  color: #c2185b;
+  margin-bottom: 20px;
+}
+
+.btn-play {
+  background: #ff69b4;
+  border: none;
+  padding: 18px 30px;
+  border-radius: 50px;
+  font-size: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.letra {
+  background: #fff0f5;
+  padding: 15px;
+  border-radius: 10px;
+  max-height: 45vh;
+  overflow-y: auto;
+  font-size: 16px;
+  color: #5a2a3a;
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+}
+
+.btn-seguinte {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  background: #ff69b4;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  color: white;
+}
+    
+.letra p {
+  opacity: 0.4;
+  transition: all 0.4s ease;
+}
+
+.letra p.ativa {
+  opacity: 1;
+  color: #d81b60;
+  font-weight: bold;
+  transform: scale(1.05);
+}
+
+/* ❤️ CORAÇÕES */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    color: rgba(255,0,100,0.4);
+    animation: floatUp 8s linear infinite;
+}
+
+@keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-120vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- CORAÇÕES -->
+<script>
+setInterval(() => {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "❤️";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.fontSize = Math.random() * 20 + 15 + "px";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 8000);
+}, 500);
+</script>
+
+<!-- TELA 1 -->
+<section class="active" id="s1">
+    <div class="envelope" onclick="next()">
+        <div class="seal">❤️</div>
+    </div>
+</section>
+
+<!-- TELA 2 -->
+<section id="s2">
+    <div class="title">
+        Feliz Dia dos Namorados ❤️<br>
+        São 4 meses de nós
+    </div>
+    <button class="next-btn" onclick="next()">Clique aqui</button>
+</section>
+
+<!-- TELA 3 -->
+<section id="s3">
+    <img src="nossa.png" class="photo-small">
+
+    <div class="text">
+        Você é especial para mim de um jeito difícil de explicar.<br>
+        Em ti eu encontro carinho, paz e um amor<br>
+        que cresce a cada dia.
+    </div>
+
+    <button class="next-btn" onclick="next()">Seguinte</button>
+
+</section>
+
+<!-- TELA 4 -->
+<section id="s4">
+<div class="carta-container">
+  <p id="texto-carta"></p>
+</div>
+    <button class="next-btn" onclick="next()">Seguinte</button>
+</section>
+
+<!-- TELA 5 -->
+<section id="s5">
+    
+    <div class="memory left">
+        <img src="delcia1.jpg">
+        <p>Teu sorriso ilumina meus dias.</p>
+    </div>
+
+    <div class="memory right">
+        <img src="delcia2.jpg">
+        <p>Em cada detalhe teu, eu vejo amor.</p>
+    </div>
+
+    <div class="memory left">
+        <img src="delcia3.jpg">
+        <p>Que seja sempre você, hoje e sempre.</p>
+    </div>
+    <button class="next-btn" onclick="next()">Seguinte</button>
+</section>
+
+<!-- TELA 5 -->
+<section id="s6">
+    
+  <div class="tela musica">
+
+  <h2>Uma música feita pra ti 🎵</h2>
+
+  <button class="btn-play" onclick="tocarMusica()">
+    ▶️ Play
+  </button>
+
+  <audio id="audioMusica" src="musica.mp3"></audio>
+
+<div class="letra">
+  <p data-tim3="1">...</p>
+  <p data-time="16">In the neon night, come dance with me</p>
+  <p data-time="22">Bodies drawn together, one path to be free</p>
+  <p data-time="30">Feel your warmth, like honey on fire</p>
+  <p data-time="38">We're flying on the floor, soaring higher and higher.</p>
+  <p data-time="46">Every beat, your gaze holds tight</p>
+  <p data-time="49">Like honey and bee, in the endless night</p>
+  <p data-time="53">In love's symphony, we are the song</p>
+  <p data-time="57">Let's move together, where we both belong.</p>
+  <p data-time="61">Honey and bee, come give your heart</p>
+  <p data-time="64">In the sound of night, we'll never part</p>
+  <p data-time="68">Honey and bee, spinning afar</p>
+  <p data-time="72">In love’s vibration, we’ll reach the stars</p>
+  <p data-time="76">Délcia, Délcia I love you</p>
+  <p data-time="92">Lights are flashing, hearts on the rise</p>
+  <p data-time="99">Steps so steady, energy in disguise</p>
+  <p data-time="105">Moments melt away, the instant rules</p>
+  <p data-time="113">In the frequency of desire, breaking all the rules</p>
+  <p data-time="121">Every beat, your gaze holds tight</p>
+  <p data-time="124">Like honey and bee, in the endless night</p>
+  <p data-time="128">In love's symphony, we are the song</p>
+  <p data-time="132">Let's move together, where we both belong.</p>
+  <p data-time="136">Honey and bee, come give your heart</p>
+  <p data-time="140">In the sound of night, we'll never part.</p>
+  <p data-time="144">Honey and bee, spinning afar</p>
+  <p data-time="147">In love’s vibration, we’ll reach the stars</p>
+  <p data-time="150">Délcia, Délcia I love you</p>
+  <p data-time="167">When the dawn breaks, the sun will see</p>
+  <p data-time="174">This connection grows, it’s you and me</p>
+  <p data-time="181">Honey and bee, pure ecstasy</p>
+  <p data-time="185">In destiny's dance, just you and me</p>
+  <p data-time="196">Honey and bee, come give your heart</p>
+  <p data-time="200">In the sound of night, we'll never part</p>
+  <p data-time="204">Honey and bee, spinning afar</p>
+  <p data-time="208">In love’s vibration, we’ll reach the stars</p>
+  <p data-time="211">I love you my princess</p>
+  <p data-time="219">Honey and bee, in eternity</p>
+  <p data-time="222">Dancing together, our happiness set free</p>
+  <p data-time="226">Honey and bee, in truth we lay</p>
+  <p data-time="234">We are one, in every way</p>
+</div>
+
+  <button class="next-btn" onclick="next()">
+    seguinte
+  </button>
+
+</div>
+      
+</section>
+    
+<section id="s7">
+    <div class="title">
+        Te amoo minha princesa❤️<br>
+        Obrigado Pela paciência, espero que tenhas gostado🥰
+    </div>
+</section>
+    
+<script>
+let current = 1;
+function next() {
+    document.getElementById("s"+current).classList.remove("active");
+    current++;
+    document.getElementById("s"+current).classList.add("active");
+}
+
+const texto = `Meu amor,
+
+Eu queria agradecer-te por fazeres parte da minha vida, por seres essa pessoa bondosa, carinhosa, amorosa, alegre, extrovertida, etc... palavras me faltam para descrever o quão incrivel tu és.
+Durante todos esses anos ter-te como minha namorada foi uma das melhores coisas que aconteceu na minha vida.
+Agradeço a Deus por colocar-te na minha vida. E espero que nosso amor nunca acabe.
+Amo-te minha princesa, e continuarei a amar-te.
+
+Tu és especial para mim,
+e cada momento contigo vale ouro ❤️
+Ass: Thiago Gorjão.`;
+
+let i = 0;
+const velocidade = 75; // quanto menor, mais rápido
+
+function escreverTexto() {
+  if (i < texto.length) {
+    document.getElementById("texto-carta").innerHTML += texto.charAt(i);
+    i++;
+    setTimeout(escreverTexto, velocidade);
+  }
+}
+
+window.onload = escreverTexto;
+</script>
+
+<script>
+function tocarMusica() {
+  const musica = document.getElementById("audioMusica");
+  musica.play();
+}
+</script>
+
+<script>
+const audio = document.getElementById("audioMusica");
+const linhas = document.querySelectorAll(".letra p");
+
+audio.addEventListener("timeupdate", () => {
+  const tempoAtual = audio.currentTime;
+
+  linhas.forEach((linha, index) => {
+    const inicio = parseFloat(linha.dataset.time);
+    const proxima = linhas[index + 1]
+      ? parseFloat(linhas[index + 1].dataset.time)
+      : Infinity;
+
+    if (tempoAtual >= inicio && tempoAtual < proxima) {
+      linha.classList.add("ativa");
+    } else {
+      linha.classList.remove("ativa");
+    }
+  });
+});
+</script>
+
+</body>
+</html>
